@@ -2,7 +2,7 @@
 
 Simple Mongo backed queue exercise.
 
-##### #Queue(conString:String, options:Object)
+#### #Queue(conString:String, options:Object)
 Initializes a new instance of the Queue class.
 * ```conString``` The Mongo connection string.
 * ```options``` The options object.
@@ -11,35 +11,35 @@ Initializes a new instance of the Queue class.
 * ```options.retries``` The number of retries before a queue is dead.
 * ```options.mongo``` The Mongo connection options.
 
-##### #connect()
+#### #connect()
 Opens a connection to the Mongo DB.
 
-##### #add(message:Mixed, priority:Number)
+#### #add(message:Mixed, priority:Number)
 Adds a message to the queue.
 * ```message``` The message to queue.
 * ```priority``` The message priority.
 
-##### #get()
+#### #get()
 Gets the next item in the queue.
 
-##### #complete(id:String)
+#### #complete(id:String)
 Marks a queue item as complete.
 * ```id``` The item ID.
 
-##### #fail(id:String)
+#### #fail(id:String)
 Marks a queue item as failed.
 * ```id``` The item ID.
 
-##### #markDead(id:String)
+#### #markDead(id:String)
 Marks a queue item as dead _(to many retries)_.
 * ```id``` The item ID.
 
-##### #clean()
+#### #clean()
 Removes all completed queue items.
 
 _The collection already has a TTL index on completed documents so this is merely if you want to manually flush them._
 
-###### #free()
+#### #free()
 Frees the queue items that are passed the release time.
 
 ### License
