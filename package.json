@@ -1,6 +1,6 @@
 {
   "name": "@belsrc/squeue",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple mongo backed queue",
   "main": "index.js",
   "scripts": {
