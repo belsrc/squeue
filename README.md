@@ -39,6 +39,9 @@ Removes all completed queue items.
 
 _The collection already has a TTL index on completed documents so this is merely if you want to manually flush them._
 
+#### #bury()
+Removes all dead queue items.
+
 #### #free()
 Frees the queue items that are passed the release time.
 
