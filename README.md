@@ -44,7 +44,7 @@ Frees the queue items that are passed the release time.
 
 ### License
 
-  Express.js Boilerplate is licensed under the DBAD license.
+  Squeue is licensed under the DBAD license.
 
   Copyright (c) 2017 Bryan Kizer
 

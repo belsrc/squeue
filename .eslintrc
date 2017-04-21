@@ -153,6 +153,7 @@
     "spaced-comment": [1,"always",{"exceptions":["\"-\""," \"+\""," \"=\""," \"*\""]}],
     "arrow-parens": [1,"as-needed"],
     "arrow-spacing": [1,{"before":true,"after":true}],
+    "arrow-body-style": [1, "as-needed"],
     "constructor-super": 1,
     "generator-star-spacing": [1,"before"],
     "no-class-assign": 2,
