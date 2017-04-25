@@ -11,6 +11,19 @@ Initializes a new instance of the Queue class.
 * ```options.retries``` The number of retries before a queue is dead.
 * ```options.mongo``` The Mongo connection options.
 
+Has the following defaults:
+```
+{
+  collection: 'queue',
+  release: 30,
+  retries: 5,
+  mongo: {
+    keepAlive: 20000,
+    autoReconnect: true,
+  },
+}
+```
+
 #### #connect()
 Opens a connection to the Mongo DB.
 
@@ -44,6 +57,40 @@ Removes all dead queue items.
 
 #### #free()
 Frees the queue items that are passed the release time.
+
+### Example
+```javascript
+function addToQueue(message) {
+  return queue
+    .add(message);
+}
+
+function doWork() {
+  return queue.get()
+    .then(item => {
+      if(!item) {
+        return;
+      }
+
+      return repo
+        .readById(item.message.id)
+        .then(doc => doSomething(doc))
+        .then(() => queue.complete(item.id))
+        .catch(error => queue
+          .fail(item.id)
+          .then(() => Promise.reject(error))
+        );
+    });
+}
+
+// In the method where you want to queue something
+// The message can be anything you want
+addToQueue({ event: 'ADD', id: doc.id });
+
+// In some sort of worker
+doWork();
+```
+
 
 ### License
 
